@@ -10,7 +10,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="age.css">
     </head>
-
+    <canvas id="confetti"></canvas>
     <body>
         <main>
             <header>
@@ -33,7 +33,7 @@
                 <div><label for="">Year</label><input placeholder="YYYY" id="y2" type="number"></div>
             </div>
 
-            <div><button onclick="calculateAge()"><i class="fa-solid fa-arrow-right"></i></button></div>
+            <div><button id="button" onclick="calculateAge()"><i class="fa-solid fa-arrow-right"></i></button></div>
         </div>
 
 
@@ -46,7 +46,7 @@
     <footer>
         <p>&copy <a target="_blank" href="https://www.facebook.com/SAKIB797">Iftekhar Sakib</a></p>
     </footer>
-        
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
         <script src="age.js"></script>
     </body>
 

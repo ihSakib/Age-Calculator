@@ -35,5 +35,18 @@ function calculateAge() {
     ageYears--;
     ageMonths += 12;
   }
+
   document.getElementById('result').innerHTML = `<img src="sticker_25.gif">You are ${ageYears} years, ${ageMonths} months, ${ageDays} days old`;
+
+  // Clear input fields
+  document.getElementById('d1').value = '';
+  document.getElementById('m1').value = '';
+  document.getElementById('y1').value = '';
+  document.getElementById('d2').value = '';
+  document.getElementById('m2').value = '';
+  document.getElementById('y2').value = '';
+
+  // Execute confetti code if the second if statement is false
+  const jsConfetti = new JSConfetti();
+  jsConfetti.addConfetti().then(() => jsConfetti.addConfetti());
 }
