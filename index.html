@@ -1,4 +1,4 @@
-<!DO placeholder=""Cid="" TYPE html>
+<!DO placeholder="" Cid="" TYPE html>
     <html lang="en">
 
     <head>
@@ -11,42 +11,45 @@
         <link rel="stylesheet" href="age.css">
     </head>
     <canvas id="confetti"></canvas>
+
     <body>
         <main>
             <header>
                 <h1>Age Calculator <i class="fa-solid fa-calculator"></i></h1>
-              </header>
+            </header>
 
-        <div class="main">
+            <div class="main">
 
-            <h3>Date Of Birth</h3>
-            <div class="birth">
-                <div><label for="">Date</label><input placeholder="DD" id="d1" type="number"></div>
-                <div><label for="">Month</label><input placeholder="MM" id="m1" type="number"></div>
-                <div><label for="">Year</label><input placeholder="YYYY" id="y1" type="number"></div>
+                <h3>Date Of Birth</h3>
+                <div class="birth">
+                    <div><label for="">Date</label><input placeholder="DD" id="d1" type="number"></div>
+                    <div><label for="">Month</label><input placeholder="MM" id="m1" type="number"></div>
+                    <div><label for="">Year</label><input placeholder="YYYY" id="y1" type="number"></div>
+                </div>
+
+                <h3>Today`s Date</h3>
+                <div class="today">
+                    <div><label for="">Date</label><input placeholder="DD" id="d2" type="number"></div>
+                    <div><label for="">Month</label><input placeholder="MM" id="m2" type="number"></div>
+                    <div><label for="">Year</label><input placeholder="YYYY" id="y2" type="number"></div>
+                </div>
+
+                <div><button id="button" onclick="calculateAge()"><i class="fa-solid fa-arrow-right"></i></button></div>
             </div>
-            
-            <h3>Today`s Date</h3>
-            <div class="today">
-                <div><label for="">Date</label><input placeholder="DD" id="d2" type="number"></div>
-                <div><label for="">Month</label><input placeholder="MM" id="m2" type="number"></div>
-                <div><label for="">Year</label><input placeholder="YYYY" id="y2" type="number"></div>
+
+
+
+
+            <div class="result">
+                <h3 placeholder="" id="result"><img src="sticker_28.gif" alt="">I`m waiting to know your Age...</h3>
             </div>
+        </main>
+        <footer>
+            <p>&copy <a target="_blank" href="https://www.facebook.com/SAKIB797">Iftekhar Sakib</a></p>
+        </footer>
 
-            <div><button id="button" onclick="calculateAge()"><i class="fa-solid fa-arrow-right"></i></button></div>
-        </div>
 
-
-        
-
-        <div  class="result">
-            <h3 placeholder="" id="result"><img src="sticker_28.gif" alt="">I`m waiting to know your Age...</h3>
-        </div>
-    </main>
-    <footer>
-        <p>&copy <a target="_blank" href="https://www.facebook.com/SAKIB797">Iftekhar Sakib</a></p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
         <script src="age.js"></script>
     </body>
 
