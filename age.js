@@ -1,11 +1,31 @@
+document.addEventListener('DOMContentLoaded', function () {
+  // Create a new Date object
+  var today = new Date();
+
+  // Get the current day, month, and year
+  var day = today.getDate();
+  var month = today.getMonth() + 1; // Note: months are zero-based, so we add 1
+  var year = today.getFullYear();
+
+  // Populate the input fields
+  document.getElementById('d2').value = day;
+  document.getElementById('m2').value = month;
+  document.getElementById('y2').value = year;
+});
+
+
+
+
+
 function calculateAge() {
   var d1 = parseInt(document.getElementById('d1').value);
   var m1 = parseInt(document.getElementById('m1').value);
   var y1 = parseInt(document.getElementById('y1').value);
 
-  var d2 = parseInt(document.getElementById('d2').value);
-  var m2 = parseInt(document.getElementById('m2').value);
-  var y2 = parseInt(document.getElementById('y2').value);
+  var today = new Date(); // Get the current date
+  var d2 = today.getDate();
+  var m2 = today.getMonth() + 1;
+  var y2 = today.getFullYear();
 
   // Validate the input
   if (isNaN(d1) || isNaN(m1) || isNaN(y1) || isNaN(d2) || isNaN(m2) || isNaN(y2)) {
@@ -42,11 +62,8 @@ function calculateAge() {
   document.getElementById('d1').value = '';
   document.getElementById('m1').value = '';
   document.getElementById('y1').value = '';
-  document.getElementById('d2').value = '';
-  document.getElementById('m2').value = '';
-  document.getElementById('y2').value = '';
 
-  // Execute confetti code if the second if statement is false
+  // Execute confetti code
   const jsConfetti = new JSConfetti();
   jsConfetti.addConfetti().then(() => jsConfetti.addConfetti());
 }
