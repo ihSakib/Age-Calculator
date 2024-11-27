@@ -1,155 +1,147 @@
-
+/* General Styles */
 body {
-    font-family: Verdana, sans-serif;    margin: 0;
-    
-    box-sizing: border-box;
-position: relative;
-margin: 0;
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  min-height: 100dvh;
 }
+
 header {
-    text-align: center;
-    background-color: #285880;
-    padding: 10px;
-    
-  }
-footer{
-position: absolute;
-bottom: 0;
-width: 100%;
-text-align: center;
-color:grey;
+  text-align: center;
+  background-color: #285880;
+  padding: 10px;
 }
-h1{
-    text-align: center;
-    color: white;
-    margin: 0;
-  
+
+h1 {
+  text-align: center;
+  color: white;
+  margin: 0;
+  font-size: 28px; /* Default font size */
 }
-a{
-    color: grey;
+
+footer {
+  width: 100%;
+  text-align: center;
+  color: grey;
 }
+
+/* Link Styles */
+a {
+  color: grey;
+}
+
+/* Form Sections */
 .birth,
 .today {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
+/* Main Section */
 .main {
-    width: 80%;
-    margin: auto;
-    margin-top:50px ;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: rgba(0, 0, 0, 0.03);
+  width: 80%;
+  margin: 50px auto 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 5px gainsboro;
+  border-left: 3px solid #285880;
+  border-right: 3px solid #285880;
+}
 
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0px 0px 5px gainsboro;
-    border-left: 3px solid  #285880;
-    border-right: 3px solid  #285880;
-   
+.result {
+  width: 80%;
+  margin: 40px auto 0;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 0px 5px gainsboro;
+  border-left: 3px solid orange;
+  border-right: 3px solid orange;
+}
+
+.result h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Input and Button Styles */
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  font-weight: 500;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px gainsboro;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+/* Miscellaneous */
+h3 {
+  /* text-decoration: underline; */
+}
+
+img {
+  width: 100px;
+  height: 100px;
 }
 
 label {
-    display: block;
-    width: ;
-    padding-left: 2;
+  display: none;
 }
 
-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 3px;
+/* Confetti Canvas */
+canvas#confetti {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
 }
 
- h3 {
-    text-decoration: underline;
-}
-button{
-    background-color: black;
-    border: 1px solid #ccc;
-    box-shadow: 0px 0px 5px gainsboro;
-
-    color:white;
-    font-weight: 500;
-    outline: none;
-    border: none;
-    padding: 5px 20px;
-    border-radius: 5px;
-}
-/*////////////////////////////////////////////////*/
-.result{
-    width: 80%;
-    padding: 10px 20px;
-    margin: auto;
-    margin-top:40px ;
-   
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px gainsboro;
-    border-left: 3px solid orange;
-    border-right: 3px solid orange;
-    background-color: rgba(0, 0, 0, 0.03);
-
-    
-}
-
-
-.result h3 {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-img{
-    width: 100px;
-   height: 100px;
-   
-}
-label{
-    display: none;
-}
-/********************************/
-@media only screen and (max-width: 500px) {
-    body{
-
-    }
-    input{
-        padding: 5;
-    }
-    .main,.result{
-        width: 70%;
-    }
-    .result h3{
-        font-size: 16px;
-    }
-    h1{
-        font-size: 26px;
-        
-       
-        
-    }
-    footer p{
-        font-size: 14px;
-       
-    }
-
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .main,
+  .result {
+    width: 70%;
+    margin-top: 2rem;
   }
 
-  /************************/
-  canvas#confetti {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    z-index: 1000;
-    pointer-events: none;
+  h1 {
+    font-size: 26px;
   }
+
+  .result h3 {
+    font-size: 16px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+}

@@ -1,57 +1,103 @@
-<!DO placeholder="" Cid="" TYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="google-site-verification" content="1Wvqbv4wuif2_zekKDFoKArSSaDLhQnhdfrwLAw77p0" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Age Calculator</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="age.css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-site-verification"
+      content="1Wvqbv4wuif2_zekKDFoKArSSaDLhQnhdfrwLAw77p0"
+    />
+    <title>Age Calculator</title>
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="age.css" />
+  </head>
+  <body>
     <canvas id="confetti"></canvas>
+    <main>
+      <header>
+        <h1>Age Calculator <i class="fa-solid fa-calculator"></i></h1>
+      </header>
 
-    <body>
-        <main>
-            <header>
-                <h1>Age Calculator <i class="fa-solid fa-calculator"></i></h1>
-            </header>
+      <section class="main">
+        <h3>Date of Birth</h3>
+        <div class="birth">
+          <div>
+            <input placeholder="DD" id="d1" type="number" aria-label="Day" />
+          </div>
+          <div>
+            <input placeholder="MM" id="m1" type="number" aria-label="Month" />
+          </div>
+          <div>
+            <input placeholder="YYYY" id="y1" type="number" aria-label="Year" />
+          </div>
+        </div>
 
-            <div class="main">
+        <h3>Today's Date</h3>
+        <div class="today">
+          <div>
+            <input
+              placeholder="DD"
+              id="d2"
+              type="number"
+              readonly
+              aria-label="Current Day"
+            />
+          </div>
+          <div>
+            <input
+              placeholder="MM"
+              id="m2"
+              type="number"
+              readonly
+              aria-label="Current Month"
+            />
+          </div>
+          <div>
+            <input
+              placeholder="YYYY"
+              id="y2"
+              type="number"
+              readonly
+              aria-label="Current Year"
+            />
+          </div>
+        </div>
 
-                <h3>Date Of Birth</h3>
-                <div class="birth">
-                    <div><label for="">Date</label><input placeholder="DD" id="d1" type="number"></div>
-                    <div><label for="">Month</label><input placeholder="MM" id="m1" type="number"></div>
-                    <div><label for="">Year</label><input placeholder="YYYY" id="y1" type="number"></div>
-                </div>
+        <button id="button" onclick="calculateAge()">Calculate</button>
+      </section>
 
-                <h3>Today`s Date</h3>
-                <div class="today">
-                    <div><label for="">Date</label><input placeholder="DD" id="d2" type="number" readonly></div>
-                    <div><label for="">Month</label><input placeholder="MM" id="m2" type="number" readonly></div>
-                    <div><label for="">Year</label><input placeholder="YYYY" id="y2" type="number" readonly></div>
-                </div>
+      <section class="result">
+        <h3 id="result">
+          <img src="./img/sticker_28.gif" alt="Waiting to know your age" />
+          I'm waiting to know your Age...
+        </h3>
+      </section>
+      
+    </main>
 
-                <div><button id="button" onclick="calculateAge()"><i class="fa-solid fa-arrow-right"></i></button></div>
-            </div>
+    <footer>
+      <p>
+        &copy;
+        <a
+          rel="noopener"
+          href="https://www.facebook.com/SAKIB797"
+          target="_blank"
+          >Iftekhar Sakib</a
+        >
+      </p>
+    </footer>
 
-
-
-
-            <div class="result">
-                <h3 placeholder="" id="result"><img src="sticker_28.gif" alt="">I`m waiting to know your Age...</h3>
-            </div>
-        </main>
-        <footer>
-            <p>&copy <a target="_blank" href="https://www.facebook.com/SAKIB797">Iftekhar Sakib</a></p>
-        </footer>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-        <script src="age.js"></script>
-    </body>
-
-    </html>
+    <!-- JS Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <!-- Custom Scripts -->
+    <script src="age.js"></script>
+  </body>
+</html>

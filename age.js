@@ -34,20 +34,20 @@ function calculateAge() {
   let ageMonths = m2 - m1;
   let ageDays = d2 - d1;
 
-  if (ageDays < 0) {
-    ageMonths--;
-    const daysInLastMonth = new Date(y2, m2 - 1, 0).getDate();
-    ageDays += daysInLastMonth;
-  }
-
   if (ageMonths < 0) {
     ageYears--;
     ageMonths += 12;
   }
 
+  if (ageDays < 0) {
+    ageMonths--;
+    const daysInLastMonth = new Date(y2, m2 - 1, 0).getDate();
+    ageDays = daysInLastMonth - d1 + d2;
+  }
+
   // Display result
   document.getElementById("result").innerHTML = `
-    <img src="sticker_25.gif" alt="Celebration Sticker"> 
+    <img src="./img/sticker_25.gif" alt="Celebration Sticker"> 
     You are ${ageYears} years, ${ageMonths} months, and ${ageDays} days old.
   `;
 
