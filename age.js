@@ -1,53 +1,42 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Create a new Date object
-  var today = new Date();
-
-  // Get the current day, month, and year
-  var day = today.getDate();
-  var month = today.getMonth() + 1; // Note: months are zero-based, so we add 1
-  var year = today.getFullYear();
-
-  // Populate the input fields
-  document.getElementById('d2').value = day;
-  document.getElementById('m2').value = month;
-  document.getElementById('y2').value = year;
+document.addEventListener("DOMContentLoaded", function () {
+  // Automatically populate today's date in the input fields
+  const today = new Date();
+  document.getElementById("d2").value = today.getDate();
+  document.getElementById("m2").value = today.getMonth() + 1; // Months are 0-based
+  document.getElementById("y2").value = today.getFullYear();
 });
 
-
-
-
-
 function calculateAge() {
-  var d1 = parseInt(document.getElementById('d1').value);
-  var m1 = parseInt(document.getElementById('m1').value);
-  var y1 = parseInt(document.getElementById('y1').value);
+  // Get input values for the birth date
+  const d1 = parseInt(document.getElementById("d1").value, 10);
+  const m1 = parseInt(document.getElementById("m1").value, 10);
+  const y1 = parseInt(document.getElementById("y1").value, 10);
 
-  var today = new Date(); // Get the current date
-  var d2 = today.getDate();
-  var m2 = today.getMonth() + 1;
-  var y2 = today.getFullYear();
+  // Get today's date
+  const today = new Date();
+  const d2 = today.getDate();
+  const m2 = today.getMonth() + 1; // Months are 0-based
+  const y2 = today.getFullYear();
 
-  // Validate the input
-  if (isNaN(d1) || isNaN(m1) || isNaN(y1) || isNaN(d2) || isNaN(m2) || isNaN(y2)) {
-    alert("Please enter valid dates");
+  // Validate input
+  if (!isValidDate(d1, m1, y1)) {
+    alert("Please enter a valid date of birth");
+    return;
+  }
+
+  if (new Date(y1, m1 - 1, d1) > today) {
+    alert("Date of birth cannot be in the future");
     return;
   }
 
   // Calculate age
-  var ageYears, ageMonths, ageDays;
-
-  if (y1 > y2 || (y1 == y2 && (m1 > m2 || (m1 == m2 && d1 > d2)))) {
-    alert("Invalid date of birth");
-    return;
-  }
-
-  ageYears = y2 - y1;
-  ageMonths = m2 - m1;
-  ageDays = d2 - d1;
+  let ageYears = y2 - y1;
+  let ageMonths = m2 - m1;
+  let ageDays = d2 - d1;
 
   if (ageDays < 0) {
     ageMonths--;
-    var daysInLastMonth = new Date(y2, m2 - 1, 0).getDate();
+    const daysInLastMonth = new Date(y2, m2 - 1, 0).getDate();
     ageDays += daysInLastMonth;
   }
 
@@ -56,14 +45,32 @@ function calculateAge() {
     ageMonths += 12;
   }
 
-  document.getElementById('result').innerHTML = `<img src="sticker_25.gif">You are ${ageYears} years, ${ageMonths} months, ${ageDays} days old`;
+  // Display result
+  document.getElementById("result").innerHTML = `
+    <img src="sticker_25.gif" alt="Celebration Sticker"> 
+    You are ${ageYears} years, ${ageMonths} months, and ${ageDays} days old.
+  `;
 
   // Clear input fields
-  document.getElementById('d1').value = '';
-  document.getElementById('m1').value = '';
-  document.getElementById('y1').value = '';
+  clearInputs(["d1", "m1", "y1"]);
 
-  // Execute confetti code
+  // Trigger confetti effect
   const jsConfetti = new JSConfetti();
   jsConfetti.addConfetti().then(() => jsConfetti.addConfetti());
+}
+
+function isValidDate(day, month, year) {
+  if (isNaN(day) || isNaN(month) || isNaN(year)) return false;
+
+  // Check if the date exists
+  const date = new Date(year, month - 1, day);
+  return (
+    date.getFullYear() === year &&
+    date.getMonth() === month - 1 &&
+    date.getDate() === day
+  );
+}
+
+function clearInputs(inputIds) {
+  inputIds.forEach((id) => (document.getElementById(id).value = ""));
 }
